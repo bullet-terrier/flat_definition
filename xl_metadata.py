@@ -51,12 +51,15 @@ def get_sheet_len(xl_sht,max_row=100000):
     return count;
     
 
-def get_column_titles(xl_sht,max_column=100000,max_row=100000):
+def get_column_titles(xl_sht,row = None,max_column=100000,max_row=100000):
     """
     this function will assume the first row with values (that is not the title)
     will contain column definitions.
+    \
+    Added in a place to skip to row (row) in order to cut down on the number of times
+    the file needs to be processed.
     """
-    row,column,values = 1,0,[];
+    row,column,values = row or 1,0,[]; # always bounce the row to one when dealing with XL.
     row_len = 0;
     was_title = False;
     is_header = False;
@@ -98,12 +101,26 @@ def get_file_title(xl_sht,max_row = 10000):
         row +=1;
         if row >= max_row: break; # escape! (prevent infinite looping)
     return values,row;
-        
-def file_def_factory(xl_file):
+
+# read through for the column that describes the field terminators - some files may use rows,
+# so I'll need to set up an alternate form for that.
+def file_def_factory(xl_file,get_column_headers = False,get_file_title = False):
     """
     load in an excel file, return a tuple of a freshly minted
     file_definition object, and an open descriptor to an XL file
+    alright - this compact little mess will run through and get the desired data out of
+    the file, while attempting to handle cases with and without the file headers/title.
     """
     xl_doc = xl_.load_workbook(xl_file);
     xl_sht = xl_doc.get_active_sheet();
-    #fl_rep = flat_fields(xl_file); # complete this line.
+    file_title = not get_file_title or get_file_title(xl_file);
+    if type(file_title) == bool: file_title = xl_file;
+    fl_rep = flat_fields(xl_sht,file_title[0]);
+    get_column_headers = not get_column_headers or get_column_titles(xl_sht,file_title[1])
+    del file_title,get_file_title, xl_file;
+    # I'll just return a tuple: file rep, and column headers,.
+    return (fl_rep,get_column_headers)
+            
+    
+    
+    
