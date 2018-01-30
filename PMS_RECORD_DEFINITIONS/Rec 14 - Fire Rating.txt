@@ -1,0 +1,112 @@
+														
+								Record Type 14  -  Fire Rating.    Reformatted for Download.					
+														
+Field #	Start	End	Length	Description	Notes			
+														
+1	1	2	2	Record Type.  Identifies what type of data occurs on the record.  "14" for this type of data.					
+														
+2	3	4	2	Unit.  Numeric, usually"01".	record key	 	
+ 	 	 	 	 	 			
+3	5	5	1	Amendment.  Always "0".  This field is not used.	record key			
+														
+4	6	13	8	Date Last Change.  CCYYMMDD.	record key			
+														
+5	14	15	2	State.  Mostly "10", (Georgia) or "41".					
+						 							
+6	16	17	2	Territory.  Numeric.					
+														
+7	18	18	1	Form.  Usually "3".  Counts:  1 - 50 / 2 - 185 / 3 - 5,288 .					
+														
+8	19	20	2	Number of Families.  Mostly "01".  Counts:  01 - 5,195 / 02 - 328 .					
+														
+9	21	21	1	Occupancy.  Mostly "T".  Counts:  O - 357 / T - 5,166.					
+														
+10	22	22	1	Construction.  Counts:  F - 2,532 / M - 1,781 / S - 03 / V - 1,207.					
+														
+11	23	24	2	Protection Class.  Numeric, 01 - 10.   Counts:  01 - 67 / 02 - 698 / 03 - 1,317 / 04 - 1,413 / 05 - 823 / 06 - 874 / 07 - 294 / 08 - 16 / 09 - 20 / 10 - 01 .					
+														
+12	25	25	1	Deductible Type.   Mostly "S".  Counts:  S - 5,439 / F - 85 .					
+														
+13	26	29	4	Deductible Amount.  Numeric code, usually "1000".  Counts:  100 - 11 / 250 - 88 / 500 - 154 / 1000 - 4,556 / 2500 - 715 .					
+														
+14	30	33	4	Hydrant.  Numeric code.  Counts:  0000 - 112 / 0500 - 3,508 / 1000 - 1,904 .	 			
+														
+15	34	34	1	Fire Station.  Numeric.  Counts:  0 - 01 / 1 - 1,122 / 2 - 1,429 / 3 - 2,263 / 4 - 341 / 5 - 357 / 6 - 01 / 7 - 05 / 8 - 05 					
+								 					
+16	35	36	2	City Code.  Counts:  FD - 1,651 / IC - 3,608 / NA - 04 / PS - 261 .					
+						 	  					
+17	37	43	7	Building Amount.     +999999 .					
+								  					
+18	44	51	8	Building Premium.     +9999.99 .					
+								  					
+19	52	58	7	Contents Amount.   +999999 .					
+														
+20	59	66	8	Contents Premium.   +9999.99 .					
+														
+21	67	67	1	AEC Coverage.  Usually "E".   Counts:  E - 5,519 / N - 05.    The "N" values all appear to be for the same policy:  0021364 .					
+														
+22	68	68	1	Vandalism.   Usually "N".  Counts:  N - 5,514 / Y - 10 .					
+														
+23	69	69	1	Number of Stories.  Usually "1".  Counts:  1 - 5,506 / 2 - 18 .					
+														
+24	70	71	2	Infalation Guard.  Zero or "04".  Counts:  00 - 1,618 / 04 - 3,906 .					
+														
+25	72	72	1	Value Up.  "N" or "Y".  Counts:  N - 1,590 / Y - 3,934.	 			
+														
+26	73	75	3	Money Endorsement.  Always "000".  This field is not used.					
+														
+27	76	79	4	Year of Construction.  CCYY.					
+														
+28	80	82	3	Commission.  Always "000".  This field is not used.	 			
+ 	 	 	 	 	 			
+29	83	87	5	Zipcode.	 			
+ 	 	 	 	 	 			
+30	88	88	1	Rate Book.  Counts:  B - 26 / C - 54 / D - 142 / E - 367 / F - 359 / G - 1,559 / H - 1,202 / I - 1,020 / J - 795 . 	 			
+														
+31	89	91	3	County.  Three digit numeric.					
+														
+32	92	94	3	City.  Three digit numeric.	 			
+														
+33	95	100	6	Current Replacement Cost.   Always "000000".  This field is not used.	 			
+														
+34	101	106	6	Current Replace Cost Date.  Always "000000".  This field is not used.	 			
+														
+35	107	112	6	Replacement Cost.   Always "000000".  This field is not used.					
+														
+36	113	116	4	Inspection Year.   Always "0000".  This field is not used.					
+														
+37	117	117	1	Last Value Change.  Always "0".  This field is not used.					
+								 					
+38	118	118	1	Inspection Report.  Always spaces.  This field is not used.					
+														
+39	119	119	1	Replace Cost Method.   Usually spaces.  Counts:  spaces - 5,308 / 2 - 227 .					
+														
+40	120	120	1	History Option.   Always "N".  This field is not used.					
+		  											
+41	121	129	9	New Premium.    +99999.99 .					
+														
+42	130	138	9	Old Premium.    +99999.99 .					
+														
+43	139	139	1	Windstorm Assumption.  Usually "Y".  Counts:  N - 05 / Y - 5,530 .    ONLY Policy 0021364 has "N" value!					
+														
+44	140	140	1	Commercial Indicator.  Usually "N".   Counts:  spaces - 02 / N - 5,533 .  Both ICF recs with spaces are ancient! 					
+														
+45	141	141	1	Rate Book.  Counts:  B - 26 / C - 54 / D - 142 / E - 367 / F - 359 / G - 1,559 / H - 1,205 / I - 1,020 / J - 803 .  This field is the same as field #30, and thus is redundant.  (Counts are a bit different because they were done on different days.)					
+														
+46	142	144	3	Last Change Factor.  Numeric.					
+														
+47	145	145	1	Personal Liability.  Counts:  space - 135 / A - 3,015 / C - 139 / 0 - 1,065 / 8 - 1,171 / 9 - 10 .	Liability			
+														
+48	146	146	1	Medical Payments.  Usually "2".   Counts:  space - 135 / A - 07 / C - 05 / 0 - 1,120 / 1 - 18 / 2 - 4,247 / 8 - 03	Liability			
+														
+49	147	147	1	Bodily Injury.  Usually "0".  Counts:  space - 180 / 0 - 5,353 / 2 - 02 . 	Liability			
+														
+50	148	148	1	Property Damage.  Usually "0".   Counts:  space - 180 / 0 - 5,355 .	Liability			
+														
+51	149	150	2	Filler (last two bytes of Special Use 2).  Always spaces.					
+														
+52	151	151	1	Xtend Coverage.   Always spaces; this field is not used.					
+														
+53	152	152	1	Wind Construction.  Always spaces; this field is not used.					
+														
+54	153	153	1	Coinsurance Pct.  Always spaces; this field is not used.					

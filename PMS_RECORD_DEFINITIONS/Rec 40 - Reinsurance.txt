@@ -1,0 +1,104 @@
+														
+								Record Type 40  -  Reinsurance.    Reformatted for Download.					
+														
+														
+Field #	Start	End	Length	Description	Notes			
+														
+1	1	2	2	Record Type.  Identifies what type of data occurs on the record.  "35" for this type of data.					
+														
+2	3	3	1	Section Code.   Always "0"; this field is not used.  	 	 	
+														
+3	4	6	3	Location/Unit.   All current records have a numeric value in this field.					
+														
+4	7	7	1	Layer.   Usually "0".   Counts:  0 - 9,752 / 1 - 01 / 2 - 18 .	 			
+														
+5	8	11	4	Company Nbr.   Usually "2002".  Counts:  2001 -10 / 2002 - 7,273 / 2003 - 01 / 2004 - 2,482 / 2011 - 04 .	 			
+		 											
+6	12	19	8	Effective Date.	 			
+														
+7	20	26	7	Percent Premium Ceded.   +9.9999 .	 			
+		 			 	 					
+8	27	33	7	Percent Loss Ceded.   +9.9999 .					
+														
+9	34	38	5	Facultative Commission Rate.    +.999 .	 			
+														
+10	39	46	8	Expiration Date.					
+						 	 					
+11	47	56	10	Cession Nbr.					
+						 	  					
+12	57	57	1	Reinsurance Type.   All but one record has "2" in this field.  					
+								  					
+13	58	65	8	Date Entered.					
+														
+14	66	69	4	Reinsurance Broker Nbr.    Usually spaces.  Three recs contain"00  ".  This field is not used.					
+ 	 	 	 	 					
+15	70	78	9	Excess Amount.    +99999999 .					
+ 	 	 	 	 					
+16	79	87	9	Occurrence Limit.   +99999999 .					
+ 	 	 	 	 					
+17	88	95	9	Aggregate Limit.     +99999999 .					
+ 	 	 	 	 					
+18	97	108	12	Special Use.  All but one record, (with Exp Date of 20160926), have spaces in this field.  I don't believe it is used.					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 	 			
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 	 			
+ 	 	 	 	 	 			
+ 	 	 	 	 	 			
+ 	 	 	 	 	 			
+ 	 	 	 	 	 			
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 	 			
+ 	 	 	 	 					
+ 	 	 	 	 	 			
+ 	 	 	 	 					
+ 	 	 	 	 	 			
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 	 			
+														
+ 	 	 	 	 	 			
+														
+ 	 	 	 	 	 			
+														
+ 	 	 	 	 	 			
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					
+														
+ 	 	 	 	 					

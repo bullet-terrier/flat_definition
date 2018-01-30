@@ -9,9 +9,9 @@ file in an attempt to condense all of the data we use down into something
 
 import openpyxl as xl_; # conveniently - this does exist on other platforms - it was preinstalled on my linux machine.
 import os;
-import flat_field;
+from flat_field import *;
 
-def get_records(xl_sht,start_row = 1 percent_use = 1,allowed_null_rows = 5,max_column=100000, max_row = 100000):
+def get_records(xl_sht,start_row = 1, percent_use = 1,allowed_null_rows = 5,max_column=100000, max_row = 100000):
     """
     function to get rows of data from the excel spreadsheet.
     by default will expect all of the available columns to be used- but
@@ -27,13 +27,21 @@ def get_records(xl_sht,start_row = 1 percent_use = 1,allowed_null_rows = 5,max_c
         """
         null_cnt = 0;
         row_dat = [];
-        for a in xl_sht(row):
-            row_dat.append(a)
-            if a is None: null_cnt+=1;
-        if (len(row_dat)-nulL_cnt)/len(row_dat)>=percent_use:
-            values.append(row_dat)
-            cur_nulls = 0; # reset the nulls to make sure that it is consecutive. for the sake of this tool, anything less than use-percent will be treated as null.
-        else: cur_nulls+=1; 
+        try:
+            for a in xl_sht[row]:
+                row_dat.append(a)
+                if a is None: null_cnt+=1;
+        except IndexError:
+            print("out of range...")
+        try:
+            if (len(row_dat)-null_cnt)/len(row_dat)>=percent_use:
+                values.append(row_dat)
+                cur_nulls = 0; # reset the nulls to make sure that it is consecutive. for the sake of this tool, anything less than use-percent will be treated as null.
+            else: cur_nulls+=1; 
+        except ZeroDivisionError:
+            print("Not Today");
+            print("You do not know da wey")
+            cur_nulls+=1
         row+=1;
         if cur_nulls >= allowed_null_rows: break;
     return values;
@@ -95,7 +103,7 @@ def get_file_title(xl_sht,max_row = 10000):
     row,column,values = 1,0,None;
     while not values:
         for a in xl_sht[row]:
-            values = a.value
+            values = xl_sht[row][xl_sht[row].index(a)]
             if values: break; # escape!
             column +=1;
         row +=1;
@@ -104,7 +112,7 @@ def get_file_title(xl_sht,max_row = 10000):
 
 # read through for the column that describes the field terminators - some files may use rows,
 # so I'll need to set up an alternate form for that.
-def file_def_factory(xl_file,get_column_headers = False,get_file_title = False):
+def file_def_factory(xl_file,get_column_headers = False,get_file_title_ = False):
     """
     load in an excel file, return a tuple of a freshly minted
     file_definition object, and an open descriptor to an XL file
@@ -113,11 +121,11 @@ def file_def_factory(xl_file,get_column_headers = False,get_file_title = False):
     """
     xl_doc = xl_.load_workbook(xl_file);
     xl_sht = xl_doc.get_active_sheet();
-    file_title = not get_file_title or get_file_title(xl_file);
+    file_title = not get_file_title_ or get_file_title(xl_file);
     if type(file_title) == bool: file_title = xl_file;
     fl_rep = flat_fields(xl_sht,file_title[0]);
     get_column_headers = not get_column_headers or get_column_titles(xl_sht,file_title[1])
-    del file_title,get_file_title, xl_file;
+    del file_title,get_file_title_, xl_file;
     # I'll just return a tuple: file rep, and column headers,.
     return (fl_rep,get_column_headers)
             

@@ -1,0 +1,119 @@
+												
+								Record Type 45 - 94   -  Loss.    Reformatted for Download.			
+												
+												
+Field #	Start	End	Length	Description	Notes	
+												
+1	1	2	2	Record Type.  Identifies what type of data occurs on the record.  "45" thru "94" for this type of data.			
+												
+2	3	5	3	Unit.    Numeric.			
+												
+3	6	8	3	Major Peril.   Numeric.	 	
+												
+4	9	10	2	Sequence Number.  Numeric.  More than half the time this field is "00".	 	
+		 									
+5	11	18	8	Effective Date.	 	
+												
+6	19	19	1	Part Code.   "7" or "8".  Of a total 75,935 recs, 75,840 contain "7" in this field.  Only 95 recs contain "8".	 	
+		 			 	 			
+7	20	27	8	Loss Date.			
+												
+8	28	29	2	Occurrence.   Usually "01".  Counts:  01 - 75,826 / 02 - 107 / 03 - 02	 	
+												
+9	30	31	2	Claimant Number.  Numeric.  Of a total 75,935 recs, 59,630 contain "01" in this field.			
+						 	 			
+10	32	33	2	Loss Transaction.   Numeric.			
+		 			 	 			
+11	34	37	4	Reinsurance Company Nbr.  Usually spaces.  Counts:  spaces - 75,840 / 2002 - 02 / 2003 - 01 / 2004 - 02 / 2008 - 39 / 3002 - 01 /3006 - 17 / 3008 - 14 / 3009 - 02 / 3010 - 01 / 3012 - 06 / 3013 - 02 / 3021 - 08 . 			
+								 			
+12	38	45	8	Date Reported.			
+								 			
+13	46	47	2	Cause of Loss.  Numeric.  There are about 40 recs which have non-numeric values in this field, (e.g., "3D", "5L"), but these are all part of very old policies.			
+ 	 	 	 	 			
+14	48	49	2	Catastrophe Nbr.  Usually "00".   Counts:  00 - 72,048 / 15 - 16 / 16 - 02 / 17 - 478 / 18 - 1,489 / 19 - 590 / 20 - 323 / 21 - 200 / 22 - 155 / 23 - 204 /24 - 130 / 25- 74 / 26 - 222 / 34 - 04 .  However, only 1 policy with non-00 values in this field is close to being current.			
+												
+15	50	54	5	Excess Catastrophe.   99999 .    (Originally PIC 9(05) COMP-3.   Either zero or non-numeric.  This field is not used. ) 			
+ 	 	 	 	 			
+16	55	57	3	Adjustor Number.  Always "145".  Is this field used?			
+ 	 	 	 	 			
+17	58	59	2	Examiner Number.   Alphabetic.  Appears to be initials?			
+ 	 	 	 	 			
+18	60	70	11	Loss Amount.     +9999999.99 .			
+ 	 	 	 	 			
+19	71	79	9	Expense Amount .    +99999.99 .			
+ 	 	 	 	 	 	
+20	80	81	2	Bank Number.   Usually "01", (75,875 recs out of 75,935).  Other values, (spaces, "27", "02"), are on old policies.  Is this field used?			
+ 	 	 	 	 			
+21	82	86	5	Draft Number.   Either spaces, (31,971 recs), or numeric, except for 1 ancient policy.			
+ 	 	 	 	 			
+22	87	94	8	Transaction Date.			
+ 	 	 	 	 	 	
+23	95	97	3	Pay To.   Counts:   space - 42,786 / A - 02 / C - 1,280 / I - 9,974 / P - 231 / S - 21,662 .	 	
+ 	 	 	 	 	 	
+24	98	98	1	Mail To.   Counts:  space - 42,786 / A - 61 / C - 1,270 / I - 9,922 / P - 227 / S - 21,669 .	 	
+ 	 	 	 	 	 	
+25	99	106	8	Original Reserve.   +9999999.			
+		 	 	 	 			
+26	107	112	6	Account Entered Date.  YYYYMM.			
+ 	 	 	 	 	 	
+27	113	142	30	Claimant Name.			
+												
+28	143	146	4	Accident Location - Plant.   Always spaces.  This field isn't used.			
+ 	 	 	 	 	 	
+29	147	148	2	Accident Location - State.   Counts:   spaces - 01 / 10 - 63,634 / 41 - 12,300 .			
+ 	 	 	 	 			
+30	149	149	1	Reserve Code.  Spaces or "0".  Counts:  spaces - 66,875 / 0 - 9,060 .  Is this field used?			
+												
+31	150	152	3	Branch.  Always spaces.  This field is not used.			
+ 	 	 	 	 			
+32	153	160	8	Draft Date.			
+ 	 	 	 	 			
+33	161	166	6	Weekly Wage.   Usually spaces.  Counts:  spaces - 75,865 / 000000 - 49 / 025500 - 21 .			
+ 	 	 	 	 			
+34	167	172	6	Payment Rate.   Usually spaces, (70,613 recs out of 75,935), else numeric.			
+ 	 	 	 	 			
+35	173	173	1	Frequency.   Counts:  spaces - 70,736 / W - 5,199 .			
+ 	 	 	 	 			
+36	174	176	3	Remaining Payments.    Mostly spaces, (53,876 recs, out of 75,946 records), or "000", (17,170 recs).  Otherwise numeric.			
+ 	 	 	 	 			
+37	177	177	1	Cycle.   Always spaces.  This field is not used.			
+ 	 	 	 	 			
+38	178	179	2	Age.   Always spaces.  This field is not used.			
+ 	 	 	 	 			
+39	180	181	2	Years Employed.  Always spaces.  This field is not used.			
+ 	 	 	 	 			
+40	182	183	2	Months Employed.   Always spaces.  This field is not used.			
+ 	 	 	 	 			
+41	184	185	2	Disability Type.  Spaces or numeric.   Counts:  spaces - 61,882 / 01 - 04 / 02 - 2,019 / 03 - 527 / 05 - 8,116 / 06 - 3,267 / 09 - 131 .			
+												
+42	186	195	10	Industrial Commission Nbr.   Always spaces.  This field is not used.			
+ 	 	 	 	 	 	
+43	196	205	10	Cession.  Usually, (75,851 recs out of 75,946), spaces.  Note that all the recs with non-spaces in this field are attached to very ancient policies.  Because of this, I believe this field is no longer used.			
+ 	 	 	 	 	 	
+44	206	211	6	AIA Codes.  Lots of misc. values.			
+ 	 	 	 	 	 	
+45	212	241	30	Accident Description.			
+ 	 	 	 	 			
+46	242	244	4	Net Change Offset.   + .99 .			
+ 	 	 	 	 			
+47	246	253	8	Review Date.			
+ 	 	 	 	 			
+48	254	263	10	1099 Nbr.  Mostly numeric, (a string of numbers).			
+ 	 	 	 	 			
+49	264	266	3	Payee Nbr.  Usually, (62,110 recs out of 75,946), spaces.  Unfortunately some of the recs containing non-space values belong to current policies.  			
+												
+50	267	284	18	Payee Notes.   Usually, (75,918 out of 75,946 recs), spaces.			
+												
+51	285	296	12	Conversion Nbr.  Always spaces.  This field is not used.			
+												
+52	297	304	8	Special Use 01.  Usually, (75,864 recs out of 75,946), spaces.  Note that all the recs with non-spaces in this field are attached to ancient policies.  Because of this, I believe this field is no longer used.			
+												
+53	305	307	3	Special Use 02.   Usually, (75,932 recs out of 75,946), spaces.  Note that all the recs with non-spaces in this field are attached to ancient policies.  Because of this, I believe this field is no longe rused. 			
+		 									
+54	308	308	1	Suit.  Usually spaces.  Counts:  spaces - 72,408 / L - 2,614 / P - 927 .			
+		 									
+55	309	309	1	Excess Status Indicator.  Spaces or "F".   Counts:  spaces - 65,662 / F - 10,287 .			
+		 									
+56	310	313	4	Time.  Almost always, (75,927 recs out of 75,949), spaces.  Note that all the recs with non-spaces in this field are attached to old policies.  Because of this, I believe this field is no longer used.			
+												
+57	314	316	3	Day.  Always spaces.  This field is not used.			
