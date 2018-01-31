@@ -1,4 +1,4 @@
-
+#!./Python/python.exe
 """
 Mechanism to write XL files into Flat Files - Tab/Comma/Character delimited file.
 
@@ -12,6 +12,7 @@ Quick rundown of my algorithm -
 #XL2FF
 
 import openpyxl as xl
+import sys;
 import os;
 import os.path as ps; # ps will be the path shell
 import sqlite3 as sql; # I'm going to use a sql database to keep the most recent backup of the documents before depositing them on the filesystem.
@@ -78,7 +79,52 @@ def make_flat(directory):
     print("Completed task for directory %s."%(directory))
     return;
         
+def argv_():
+    for a in sys.argv[1:]:
+        #if "=" in a: pattern = a.split("=")[-1] # get the pattern
+        if os.path.isdir(a): 
+            make_flat(a)
+        elif os.path.isfile(a): make_flat(os.path.dirname(os.path.realpath(a)));
+        else: print("Not sure what to do with '%s'"%(a))
+        
+def interact_(val):
+    rt_ = None;
+    if os.path.isdir(val):
+        make_flat(val);
+        rt_ = True;
+    elif os.path.isfile(val): 
+        make_flat(os.path.dirname(os.path.realpath(val)));
+        rt_ = True;
+    else: 
+        print("Not sure what to do with '%s'"%(val))
+        rt_ = False;
+    return rt_;
 
 
-if __name__!="__main__":
-    print("You've imported xl2ff.py")
+def main_():
+    """
+    main loop - iterate through a set of files and make them pretty if they match a pattern.
+    """
+    pass
+    if len(sys.argv)>1: # handle the cmdline args
+        print(sys.argv[1])
+        print("Executing")
+        argv_();
+    else:
+        print("Ctrl+c to quit (or pass a non-file/non-directory item)")
+        #print("Enter a pattern to match as pattern='val' will look for pattern in filename.")
+        fn = input("Enter a path to make files: ")
+        while fn:
+            if type(fn) != str: 
+                fn = input("Enter a path to make files: ")            
+            try:                
+                fn = interact_(fn)
+            except Exception as e:
+                print(e);
+                fn = False;  
+    
+if __name__=="__main__":
+    print("Welcome to xl2ff.py")
+    main_();
+    
+if __name__!="__main__": print("You've imported xl2ff.py")

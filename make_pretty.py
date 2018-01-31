@@ -1,3 +1,4 @@
+#!./Python/python.exe
 """
 make_pretty.py
 
