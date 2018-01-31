@@ -57,6 +57,7 @@ def parse_data(workbook):
         print(row)
     return data;
     
+# couldn't be happier with make_flat (directory) I'll add in a supplemental version that will remove extraneous spaces and whatnot.
 def make_flat(directory):
     """
     take an entire directory and convert all excel spreadsheets into a .tsv file with a similar name.
