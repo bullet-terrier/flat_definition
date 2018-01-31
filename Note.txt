@@ -1,4 +1,0 @@
-Compress the include directory, and set up my processes to unpack it
-when available - I don't necessarily want to run into hot water by distributing
-someone elses package bundled with what I'm doing - so I should go and verify their
-licensing.
