@@ -87,3 +87,13 @@ def condense(path = ".",use_tsv=True):
         log_output(ECHO, "./error_log.log");
         log_output("Exception has occurred: %s"%(eddy));
     return objects;
+    
+def convert_1_to_0(data_set,column_to_convert=0,index_base=0):
+    """
+    take some dataset (likely to be tuples) and pass the column number 
+    that needs to be converted. 
+    
+    will take the index base, and determine what the first defined field is.
+    if it is not the base, it will shift all subsequent columns to match the 
+    current index base.
+    """
