@@ -1,0 +1,53 @@
+								Record Type 02  -  Policy Information.   Reformatted for Download.			
+Field #	Start	End	Length	Description	Notes	
+1	1	2	2	Record Type.  Identifies what type of data occurs on the record.  "02" for this type of data.			
+2	3	5	3	Symbol.  Identifies what type of policy is in this record, (e.g., APV, ACG).  Matches LOB, (field #19).	Policy Key	
+3	6	12	7	Policy Number.  Numeric.	Policy Key	
+4	13	14	2	Module.  Two digit number.	Policy Key	
+5	15	16	2	Master Company Number.  Appears to always be "05"!			
+6	17	18	2	Location.  Always "00", so this field isn't used.			
+7	19	20	2	Amend Number.  Numeric.  Usually "00".			
+8	21	28	8	Effectvie Date.  CCYYMMDD.			
+9	29	36	8	Expiration Date.  CCYYMMDD.			
+10	37	39	3	Installment Term.  Number of months, e.g., "012".  Most policies have a term of 12 months, but this can be any valid integer.			
+11	40	41	2	Number Installments.  Appears to always be "01"; is this field used?			
+12	42	43	2	Risk State.  Either "10", (Georgia) or "41".			
+13	44	45	2	Company Number.  Should always be "05"?  (There are 7 old recs where it is spaces.)			
+14	46	47	2	Branch.  Always "00", so this field isn't used.			
+15	48	50	3	Profit Center.  Usually"100" or "200".   Counts:  100 - 25,246 / 200 - 29,055 / 300 - 36 / 500 - 255 / 505 - 199 / 515 - 160 / 570 - 2 / 579 - 1 / 580 - 1 / 585 - 70 / 590 - 17 / 595 - 1 / 597 - 17  	 	
+16	51	57	7	Agency Number.			
+17	58	65	8	Entered Date.  CCYYMMDD.			
+18	66	75	12	Total Premium.   +99999999.99 .			
+19	78	80	3	Line of Business.  Matches Symbol, (field #2).  See LOB Count report, (created by ZORMZ4).			
+20	81	81	1	Issue Code.  Mostly "M" or "R".  Counts:  M - 27,663 / N - 1,144 / R - 26,253			
+21	82	82	1	Company Line.  Numeric.  Counts:  1 - 4,750 / 2 - 10,363 / 3 - 20,213 / 4 - 987 / 5 - 6,232 / 6 - 8,387 / 7 - 3,959 / 9 - 169			
+22	83	83	1	Pay Service Code.   Usually "D".  Counts:  A - 13 / D - 49,883 / M - 5,153 / P - 11.   All the "A" policies are ancient; some of the "P" policies are new.			
+23	84	84	1	Mode Code.  Usually "0".  Counts:  0 - 33,290 / 1 - 522 / 2 - 460 / 3 - 5,772 / 5 - 2,125 / 6 - 1 / 7 - 2 / 8 - 2 / B - 3,972 / M - 4,947 / Q - 2,609 / S - 1,358 			
+24	85	85	1	Audit Code.  Usually "N".  Only 4 recs have "A", and they are all old policies.			
+25	86	86	1	Kind Code.  Always "D".  Is this field used?			
+26	87	87	1	Variation Code.  Usually "0" (zero).  Counts:  0 - 51,409 / C - 7 / I - 1,086 / J - 1,773 / K - 82 / L - 656 / N - 3 / O - 44			
+27	88	91	4	Sort Name.  Derived from Address 1.			
+28	92	93	2	Producer Code.  Usually "00".  Counts:  00 - 54,833 / 01 - 179 / 02 - 36 / 03 - 11 / 05 - 01 			
+29	94	94	1	UW- Review Code.  "N" or "C".  Counts:  C - 723 / N -54,337 .    All the policies with a "C" value are old.	Underwriting Code	
+30	95	95	1	UW - MVR Report Year.  Usually "N".  Counts:  N - 54,649 / 0 - 28 / 1 - 12 / 2 - 18 / 3 - 17 / 4 - 8 / 5 - 85 / 6 - 93 / 7 - 24 / 8 - 110 / 9 - 37 .  	Underwriting Code	
+31	96	96	1	UW - Risk Grade Guide.  Numeric.  Counts:  1 - 21,607 / 2 - 2,676 / 3 - 1,071 / 4 - 298 / 5 - 29,185 / 6 - 128 / 7 - 81 / 8 - 35	Underwriting Code	
+32	97	97	1	UW - Risk Grade Underwriting.  Numeric.  Counts:  1 - 9,725 / 2 - 858 / 3 - 377 / 4 - 2,778 / 5 - 33,195 / 6 - 2,413 / 7 - 1,559 / 8 - 869 / 9 - 3,307 .	Underwriting Code	
+33	98	98	1	UW - Renewal Code.  Numeric.  Usually "3".  Counts:  0 - 510 / 1 - 1,337 / 2 - 4,502 / 3 - 40,609 / 4 - 04 / 7 - 1,209 / 9 - 6,910 .	Underwriting Code	
+34	99	101	3	Reason Amended.  Always spaces, so this field isn't used.			
+35	102	102	1	Renew Pay Code.  Usually "D".  Counts:  A - 06 / D - 49,160 / M - 5,908 .   All the policies with "A" are ancient.	 	
+36	103	103	1	Renew Mode Code.  Usually "0".  Counts:  0 - 33,300 / 1 - 519 / 2 - 461 / 3 - 5,770 / 5 - 2, 126 / 6- 01 / 7 - 02 / B -3, 972 / M - 4,951 / Q - 2, 617 / S - 1,355	 	
+37	104	106	3	Renew Policy Symbol.  Usually contains a valid LOB; about 30 recs contain garbage.	 	
+38	107	113	7	Renew Policy Number.  Numeric, unless field #37 contains garbage, then may also be garbage.  4,680 recs have spaces in this field.			
+39	114	119	6	Original Inception Date.  CCYYMM.			
+40	120	129	10	Customer Number.  Mostly spaces, (54,883 recs).  26 recs contain PHP*; 20 recs contain APV*.  All the policies containing PHP* and APV* values are old.			
+41	130	133	4	Special Use A.  Mostly spaces, but some recent policies have one or more of the columns set to a value.			
+42	134	140	7	Special Use B.  Mostly spaces.  Of the other values, most, (but not all), of them are on old policies.			
+43	141	146	6	Postal Code.  Numeric.			
+44	147	176	30	Address Line 01.			
+45	177	206	30	Address Line 02.			
+46	207	236	30	Address Line 03.			
+47	237	266	30	Address Line 04.			
+48	267	267	1	History Option.  Always "N".  Is this field used?			
+49	268	269	2	Final Audit Indicator.  Always spaces.  This field is not used.			
+50	270	270	1	Excess Claim Indicator.  Mostly spaces.  Counts:  spaces - 54,544 / A - 296 / B - 18 / N - 223 .			
+51	271	274	4	Zip Extra.  Mostly spaces, ( 54,116 recs).  			

@@ -23,6 +23,18 @@ than was intended at the inception of the task, but it could be handy.
 
 
 
+# flat2tsv.py
+python functions to take an arbitrary set of indices, parse a file into columns,
+then attempt to write those columns out as an easier to work with tsv file.
+
+I'm going to need to set up some form of interface to allow updates to file definitions,
+and I might even add in some form of cached data to keep track of how to index the files.
+
+anything that cuts down on the number of read/writes to mutable files will help 
+the overall project out.
+
+
+
 ============================================================================
 Primary goal will be to extract definition data concerning fixed width files
 that aren't delimited, in order to process them in a business sense.

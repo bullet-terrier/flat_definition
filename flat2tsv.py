@@ -6,10 +6,19 @@ mechanism to split a flat file into a tsv of the same name based on an index.
 
 might want to borrow the prepend functionality (see 
 May also just change the extensions to make it easier.
+
+initialize a sqlite database to keep track of flat file definitions.
+should allow something to update the record defintions, but I'm not that concerned right now.
+
+might take it out to the level where each field will get its own row.
+
+update - I'm going to ship this tool with a database - I'm going to try to update the information with
+some scripts. this means *most* of the db data in this file will be deprecated.
 """
 
 import os;
 from os import path as p; # use this to simplify coding.
+import sqlite3;
 
 ###   configuration   ###
 
@@ -19,12 +28,77 @@ from os import path as p; # use this to simplify coding.
 #
 offset = 0; # zero based index - no offset.
 minimum = 0;
+connection = "./flat_definitions.db"
 # offset = -1; # one based index - offset by -1 to a zero based index.
 
 ### end configuration ###
 
 
 ###    FUNCTION DEFINITIONS    ###
+
+def initialize_db():
+    """
+    initialize the table within this database that will contain 
+    the flat file definition information.
+    """
+    zed = sqlite3.connect(connection);
+    try:
+        zed.execute("CREATE TABLE record_definitions(record_id int, record_name varchar(30), record_indices varchar(500))")
+        zed.commit()
+    except sqlite3.OperationalError as OE:
+        print(OE);
+        print("Looks like the table already exists...");
+    finally:
+        zed.commit()
+
+def get_max_index(connection):
+    curs = connection.cursor();
+    result = curs.execute("SELECT MAX(record_id) from record_definitions")
+    rex = result.fetch()
+    #for a in  result:
+    #   rex = a[0]; # should ony be one value:
+    #   print(rex)
+    if rex is None: rex = 0
+    return int(rex); # I'll add one for every time I insert a new record.
+        
+# going to store the definition as a list object - maybe tab delimited.
+def store_definition(connection, record_name,record_indices):
+    curs = connection.cursor()
+    ind = get_max_index(connection)+1;
+    curs.execute("INSERT INTO record_definitions(record_id, record_name,record_indices) VALUES (CAST('%s' as INT), '%s', '[%s]')"%(
+        ind,
+        record_name,
+        record_indices
+    ))
+    connection.commit()
+    return ind,record_name; # return the id and the name in case something else is keying off of them.
+    
+def update_definition(connection, record_id, record_indices):
+    curs = connection.cursor();
+    ind = record_id
+    try:
+        curs.execute("UPDATE record_definitions SET record_indices = %s WHERE record_id = %s"%(record_indices, record_id));
+    except Exception as E:
+        print(E)
+        raise Exception(E);
+    return;
+    
+    
+def load_definition(connection, record_name = None, record_id = None):
+    """
+    load definitions matching the connection.
+    if record_name is wildcard and record_id is None, return all.
+    """
+    curs= connection.cursor(); # I'm not handling any exceptions - let them run up the tree.
+    const = "";
+    if record_name:
+        const = curs.execute("SELECT * FROM record_definitions WHERE record_name LIKE '%s' "%(record_name))
+    elif record_id:
+        const = curs.execute("SELECT * FROM record_definitions WHERE record_id LIKE '%s'"%(record_id))
+    else:
+        const = curs.execute("SELECT * FROM record_definitions")
+    return const; # simply return a rowset - this will be the easiest way to be resultant. - can use fetch to dump the values.
+    
 
 def process_indices(start_list, offset_ = None):
     """
@@ -45,7 +119,6 @@ def process_indices(start_list, offset_ = None):
         if type(a) not in [float,int]: raise TypeError("start_list must contain only numeric types!\nerror at index: %s.\nvalue: %s"%(start_list.index(a),a)); 
         if a < minimum: a = minimum; # this will prevent index values out of bound (though might not be an issue, I'll give it a go.)
         new_list.append(a+offset_);
-        
     return new_list;
     
 def read_from_indices(string_val, start_list):
@@ -67,13 +140,33 @@ def read_from_indices(string_val, start_list):
                 break; # should be unecessary, as it should exit from here anyway.
     return slices; # these will be the values.
 
-
+def load_source(source_document):
+    source_to_parse = "";
+    with open(source_document,'r') as src:
+        y = 0;
+        x = 0;
+        for a in src.readlines():
+            y+=1;
+            for b in a.split('\t'): x+=1;
+            source_to_parse+=a;
+    return a,y,x;
+        
     
 def main_():
     """
     will convert a flat file to a tsv based on the definition document.
     """
-    pass
+    source_document = input("Please enter a definition document to parse: ") # I'll have this set up to read in something akin to the "Pretty" documents.
+    dox= load_source(source_document);
+    get_start_dex = input("please enter the column where the start position will be found: ")
+    get_position_offset = input("is this a one based index? (y/n) ")
+    one_based = False;
+    if get_position_offset.lower() in ['y','yes']: one_based = True;
+    if one_based: offset = -1;
+    # need to set up some mechanism for classifying the information - I'll have to figure that one out...
+    # I can use segment numbers in this particular instance.
+    identifier = input("Please enter some form of identification for this object: " );
+    
 ###  END FUNCTION DEFINITIONS  ###
 
 

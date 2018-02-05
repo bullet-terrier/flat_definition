@@ -1,0 +1,61 @@
+								Record Type 17  -  Homeowners Rating.   Reformatted for Download.					
+Field #	Start	End	Length	Description	Notes			
+1	1	2	2	Record Type.  Identifies what type of data occurs on the record.  "17" for this type of data.					
+2	3	3	1	Unit.   Always "0".  This field is not used.	record key	 	
+3	4	4	1	Amendment.  Always "0".  This field is not used.	record key			
+4	5	12	8	Date Last Change.  CCYYMMDD.	record key			
+5	13	14	2	State.  Mostly "10", (Georgia) or "41".  Counts:  10 - 9,809 / 41 - 501 .					
+6	15	16	2	Territory.   Numeric.					
+7	17	17	1	Form.  Usually "3".  Counts:  2 - 121 / 3 - 10,157 / 4 - 25 / 6 - 04/ 8 - 03  					
+8	18	18	1	Number of Families.  Numeric.  Usually "1".  Counts:  1 - 10,306 / 2 - 04 .					
+9	19	19	1	Construction.   Counts:  F - 4,993 / M - 784 / S - 02 / V - 4,531					
+10	20	21	2	Protection Class.   Counts:  01 -114 / 02 - 659 / 03 - 1,145 / 04 - 2,390 / 05 - 1,837 / 06 - 2,863 / 07 - 1,272 / 08 - 16 / 09 -12 / 10 - 02 					
+11	22	22	1	Deductible Type.   Usually "X".  Counts:  F - 536 / X - 9774 .					
+12	23	26	4	Deductible Amount.   9999.  Usually "1000".					
+13	27	32	6	Coverage A Limit.  999999 .	 			
+14	33	40	8	Coverage A Premium.     +9999.99 .					
+15	41	45	5	Coverage B Limit.    99999 .					
+16	46	51	6	Coverage C Limit.    999999 .					
+17	52	59	8	Coverage C Premium.    +9999.99 .					
+18	60	64	5	Coverage D Limit.   99999 .					
+19	65	72	8	Coverage D Premium.   +9999.99 .					
+20	73	79	7	Coverage E Limit.   9999999 .					
+21	80	84	5	Coverage F Limit.   99999 .					
+22	85	92	8	Coverage E-F Premium.  +9999.99 .					
+23	93	93	1	Roof.  Always "Y".  This field is not used.					
+24	94	97	4	Hydrant.  Numeric.  Counts:  0000 - 979 / 0500 - 4,740 / 1000 - 4,591 .	 			
+25	98	99	2	Inside City.   Counts:  FD - 4,600 / IC - 4,397 / NA - 14 / PS - 1,299 .					
+26	100	100	1	Value Up.  Usually "P".   Counts:  P - 10,205 / S - 105					
+27	101	102	2	Nbr Apts.  Usually "00".  Counts:  00 - 10,281 / 01 - 24 / 04 - 03 / 10 - 02 .  None of the records with non-zero values are current.	 			
+28	103	104	2	Liability Zone.   Usually "00".   Three recs have a value of "0 "; these are all for policy 0047695, and are old.  Because of this, I believe this field isn't used.	 			
+29	105	107	3	Money Endorsement.  Always "000".  This field is not used.	 			
+30	108	112	5	Fire EC Rate.  9.999    (Original format was: 9V999.  Always "0000".  This field is not used. )					
+31	113	113	1	Wind Hail Exclsn.  Usually "N".  Counts: space - 18 / N - 10,286 / 0 - 06 .  All recs with value other than "N" are old.  Therefore, this field is not used.	 			
+32	114	114	1	Theft Extensn.  Always "N".  This field is not used.	 			
+33	115	116	2	Inflation Guard.  Counts:  00 - 5,627 / 03 - 01 / 04 - 4,682 .	 			
+34	117	117	1	Theft Dedct.   Usually "N".   Counts:  N - 10,290 / Y - 20 .					
+35	118	118	1	Class Rated.  Numeric, usually "9".   Counts: 0 - 488 / 1 - 449 / 2 - 521 / 3 - 525 / 4 - 573 / 5 - 639 / 6 - 621 / 7 - 496 / 8 - 540 / 9 - 5,458 .					
+36	119	122	4	Year of Construction.  Usually numeric, but 26 old records have spaces in this field.					
+37	123	127	5	Zip.					
+38	128	128	1	O-E Rate Book.  Usually "X".  Counts: C - 03 / E - 177 / F - 321 / N - 104 / O - 72 / R - 01 / S - 01 / T - 490 / U - 758 / V - 508 / W - 1,986 / X  - 4,058 / Y - 1,831  .					
+39	129	131	3	County Loc.  Numeric.					
+40	132	134	3	City Loc.  Numeric.					
+41	135	137	3	Replace Cost.  Always zero.  This field is not used.					
+42	138	138	1	Contngt Liablty.  Usually "N".  Counts:  N - 10,308 / Y - 02 .  Both recs with the "Y" value are old, so this field is probably not used.					
+43	139	141	3	Loss Pct.   +99 .    (Original format was: S99.   Always zero.  This field is not used. )					
+44	142	147	6	Curr Rpl Cost Date.  Always "000000".  This field is not used.					
+45	148	150	3	Replcmnt Cost.   999.  Always zero.  This field is not used.					
+46	151	151	1	Xdary Use.   Usually "0".  Counts:  space - 11 / 0 - 10,299 .  All recs with spaces in this field are old, so this field is probably not used.	 			
+n/a	152	152	1	FILLER					
+47	153	153	1	H-O-C-D.  Usually spaces.  Counts:  space - 10,067 / 1 - 243 .  Doesn't appear to be any active recs with "1" in this field.	 			
+48	154	157	4	Inspection Year.  Always spaces.  This field is not used.	 			
+49	158	158	1	Last Value Change.  Always "0".  This field is not used.	 			
+50	159	159	1	Insp Rpt.  Always "0".  This field is not used.					
+51	160	160	1	Rplce Cost Mthd.  Always "0".  This field is not used.					
+52	161	163	3	Agent Commission.   Usually "000".   Counts:  space - 18 / 000 - 10,292 .  All recs with spaces in this field are old, so this field is probably not used. 					
+53	164	164	1	History Option.  Always "N".  This field is not used.					
+54	165	173	9	New Premium.   +99999.99 .					
+55	174	182	9	Old Premium.    +99999.99 .					
+56	183	185	3	Premium Group.  Numeric.					
+57	186	186	1	Orig Rate Book.  Most often "X".   Counts: C - 03 / E - 177 / F - 321 / N - 104 / O - 72 / R - 01 / S - 01 / T - 490 / U - 758 / V - 508 / W - 1,986 / X - 4,058 / Y - 1,831 .					
+58	187	189	3	Last Change Factor.  Numeric, (including "000").					
